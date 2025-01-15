@@ -1,11 +1,13 @@
 import type { Config } from "tailwindcss";
+import { withJamsrUI } from "@jamsr-ui/theme";
 
-export default {
+const config = withJamsrUI ({
     darkMode: ["class"],
     content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+	"./node_modules/@jamsr-ui/*/dist/*.js",
   ],
   theme: {
   	extend: {
@@ -59,4 +61,5 @@ export default {
   	}
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+});
+export default config;
